@@ -1,7 +1,12 @@
 topic: moduli of elliptic curves
 related articles
 - arithmetic moduli of elliptic curves by Katz and Mazur
-- ...
+- complex analytic theory can be found in the first two chapters of 'A first course in modular forms' by Diamond and Shurman
+- ..
+
+topic: Riemann surface
+- Lectures on Riemann Surfaces by Forster
+- ..
 
 topic: class field theory
 related articles
@@ -12,6 +17,7 @@ topic: arithmetic of elliptic curves
 related articles
 - The arithmetic of elliptic curves by Silverman
 - Introduction to Elliptic Curves and Modular Forms by Koblitz
+- Rational Points on Elliptic curves by Silverman and Tate 
 - ...
 
 topic: statistical questions about elliptic curves
@@ -20,6 +26,7 @@ topic: statistical questions about elliptic curves
 
 topic: complex analytic theory of modular forms
 - Modular forms by Miyake
+- A course in arithmetic by Serre, part 2.
 - ...
 
 topic: p-adic analytic theory of modular forms
@@ -33,4 +40,3 @@ topic: representation theoretic aspects of modular forms
 topic: cyclotomic fields
 - Cyclotomic fields and zeta values by Coates and Sujatha
 - ...
-
