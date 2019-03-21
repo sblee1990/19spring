@@ -1,0 +1,335 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage[utf8x]{inputenc}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{epsfig}
+
+\usepackage{color}
+\newcommand{\pk}{\color{magenta}}
+\newcommand{\bk}{\color{black}}
+%\usepackage{showkeys}
+\renewcommand{\baselinestretch}{1.1}
+\usepackage{epic,eepic,wrapfig,color, ifthen}
+\usepackage{url}
+ \oddsidemargin 0in
+ \evensidemargin 0in
+ \topmargin -0.6in
+ \textwidth 6.5in
+ \textheight 9in
+
+\def\pf{{\medskip\noindent {\bf Proof. }}}
+\def\qed{{\hfill $\Box$ \bigskip}}
+
+
+\renewcommand{\atop}[2]{\substack{{#1}\\{#2}}}
+\newcommand{\D}{\displaystyle}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cK}{{\mathcal{K}}}
+\newcommand{\ZE}{{E_{\mathbb Z}\times E}}
+\newcommand{\cA}{{\mathcal{A}}}
+\newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\bE}{{\mathbb{E}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\def\eps{\varepsilon}
+\newcommand{\af}{\alpha}
+\newcommand{\bt}{\beta}
+\newcommand{\gm}{\gamma}
+\newcommand{\dt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\zt}{\zeta}
+\newcommand{\te}{\theta}
+\newcommand{\ld}{\lambda}
+\newcommand{\sm}{\sigma}
+\newcommand{\kp}{\kappa}
+\newcommand{\rk}{\rm rank}
+\newcommand{\wt}{\widetilde}
+\newcommand{\sms}{\setminus}
+\newcommand{\ift}{\infty}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Gm}{\Gamma}
+\newcommand{\Ld}{\Lambda}
+\newcommand{\vp}{\varphi}
+\def\1{{\bf 1}}
+
+
+\def\sA {{\cal A}} \def\sB {{\cal B}} \def\sC {{\cal C}}
+\def\sD {{\cal D}} \def\sE {{\cal E}} \def\sF {{\cal F}}
+\def\sG {{\cal G}} \def\sH {{\cal H}} \def\sI {{\cal I}}
+\def\sJ {{\cal J}} \def\sK {{\cal K}} \def\sL {{\cal L}}
+\def\sM {{\cal M}} \def\sN {{\cal N}} \def\sO {{\cal O}}
+\def\sP {{\cal P}} \def\sQ {{\cal Q}} \def\sR {{\cal R}}
+\def\sS {{\cal S}} \def\sT {{\cal T}} \def\sU {{\cal U}}
+\def\sV {{\cal V}} \def\sW {{\cal W}} \def\sX {{\cal X}}
+\def\sY {{\cal Y}} \def\sZ {{\cal Z}}
+
+\def\bA {{\mathbb A}} \def\bB {{\mathbb B}} \def\bC {{\mathbb C}}
+\def\bD {{\mathbb D}} \def\bE {{\mathbb E}} \def\bF {{\mathbb F}}
+\def\bG {{\mathbb G}} \def\bH {{\mathbb H}} \def\bI {{\mathbb I}}
+\def\bJ {{\mathbb J}} \def\bK {{\mathbb K}} \def\bL {{\mathbb L}}
+\def\bM {{\mathbb M}} \def\bN {{\mathbb N}} \def\bO {{\mathbb O}}
+\def\bP {{\mathbb P}} \def\bQ {{\mathbb Q}} \def\bR {{\mathbb R}}
+\def\bS {{\mathbb S}} \def\bT {{\mathbb T}} \def\bU {{\mathbb U}}
+\def\bV {{\mathbb V}} \def\bW {{\mathbb W}} \def\bX {{\mathbb X}}
+\def\bY {{\mathbb Y}} \def\bZ {{\mathbb Z}}
+\def\R {{\mathbb R}} \def\RR {{\mathbb R}}
+\def\n{{\bf n}}
+\def\loc{{\rm loc}}
+
+
+\def\BB{{\cal B}}
+\def\wh{\widehat}
+\def\wt{\widetilde}
+\def\pf{\noindent{\bf Proof.} }
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bee{\begin{equation}}
+\def\eee{\end{equation}}
+\def\ep{\epsilon}
+\def\de{\delta}
+\def\til{\tilde}
+\def\nn{\nonumber}
+
+\newcommand{\expr}[1]{\left( #1 \right)}
+\newcommand{\cl}[1]{\overline{#1}}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{example}[thm]{Example}
+\numberwithin{equation}{section}
+\def\ee{\varepsilon}
+\def\qed{{\hfill $\Box$ \bigskip}}
+\def\NN{{\cal N}}
+\def\AA{{\cal A}}
+\def\MM{{\cal M}}
+\def\BB{{\cal B}}
+\def\CC{{\cal C}}
+\def\LL{{\cal L}}
+\def\DD{{\cal D}}
+\def\FF{{\cal F}}
+\def\EE{{\cal E}}
+\def\QQ{{\cal Q}}
+\def\RR{{\mathbb R}}
+\def\R{{\mathbb R}}
+\def\L{{\bf L}}
+\def\K{{\bf K}}
+\def\S{{\bf S}}
+\def\A{{\bf A}}
+\def\Z{{\mathbb Z}}
+\def\Q{{\mathbb Q}}
+\def\E{{\mathbb E}}
+\def\F{{\mathbb F}}
+\def\P{{\mathbb P}}
+\def\N{{\mathbb N}}
+\def\eps{\varepsilon}
+\def\wh{\widehat}
+\def\wt{\widetilde}
+\def\pf{\noindent{\bf Proof.} }
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bee{\begin{equation}}
+\def\eee{\end{equation}}
+\def\rd{\mathrm d}
+\def\Dc{{\overline D}^c}
+\def\Uc{{\overline U}^c}
+\def\Rd{\bR^d}
+\def\sms{\setminus}
+
+
+
+\begin{document}
+
+
+\title
+{ \bf Review: A Heuistic for Boundedness of Ranks of Elliptic Curves}
+ \author{Soobin Cho}
+
+\maketitle
+
+{\bf Notation.} For $x=(x_1, ..., x_m)$ and $a=(a_1, ..., a_n)$, the notation $f(x,a) \ll_a g(x,a)$ means that for every fixed $a$, there exists a positive constant $C(a)$ such that $f(x,a) \le C(a) g(x,a)$ for all $x$. Then, $f(x,a) \asymp_a g(x,a)$ means that $f(x,a) \ll_a g(x,a)$ and $g(x,a) \ll_a f(x,a)$.
+
+For an abelian group $G$ and $n \in \N$, denote by $G[n]:= \{x \in G : nx = 0 \}$. For $p$ prime, define $G[p^\infty]:= \cup_{m \in \N} G[p^m]$ and define the $p$-rank of $G$ to be ${\rm dim_{\F_p}} G[p]$.
+
+For a commutative ring $R$, denote by $M_n(R)$ be the set of $n \times n$ matrices with entries in $R$. For $X >0$, let $M_n(\Z)_{\le X} \subset M_n(\Z)$ be the subset of matrices whose entries have absolute value less than or equal to $X$. We also let $M_n(R)_{\rm alt}$ be the set of alternating matrices, i.e. $A^T = -A$ and all the diagonal entries are $0$.
+
+For a subset $S \subset M_n(\Z_p)$, define ${\rm Prob}(S) = {\rm Prob}(S | A \in M_n(\Z_p))$ as the probability of $S$ with respect to the normalized Haar measure on the compact group $M_n(\Z_p)$.
+
+
+\section{Introduction and History}
+
+It is well known that the set $E(\Q)$ of rational points of an elliptic curve $E$ over $\Q$ has the structure of an abelian group. In 1922, Mordell proved that ${\rm rk \;} E(\Q) < \infty$. Then, it is natural to ask the question of boundedness: 
+
+\smallskip
+{\bf Conjecture $\mathbf{1}$.} Does there exists a constant $B>0$  such that for every elliptic curve $E$ over $\Q$, one has ${\rm rk }\; E(\Q) \le B$?
+
+\smallskip
+
+In the article, the authors presented a probabilistic model providing a heuristic for the arithmetic of elliptic curves and proved theorems about the model that suggest  ${\rm rk \;} E(\Q) \le 21$ for all but finitely many elliptic curves $E$.
+
+\subsection{Brief history of boundedness guesses.}
+
+Many authors have proposed guesses as to whether Conjecture $1$ is true, and their thoughts have shifted from positive to negative over time. In 1960, Honda conjectured that even for any abelian variety $A$ over $\Q$, there is a constant $c_A$ such that ${\rm rk }\; A(K) \le c_A[K:\Q]$ for every number field $K$ not only when $K = \Q$. However, from the mid-1960s to the present, it seems that the common belief is that ranks are unbounded. Here are two possible reasons for this opinion shift towards unboundedness:
+
+\smallskip
+ 1. Tate and Shafarevich (1967) and Ulmer (2002) constructed families of elliptic curves over $\F_p(t)$ (not a number field) in which the rank is unbounded.
+
+ 2. The lower bound for the maximum rank of an elliptic curve over $\Q$ has been increasing. The current record is held by Elkies (2006), who found an elliptic curve $E$ over $\Q$ of rank $\ge 28$, and an infinite family of elliptic curves over $\Q$ of rank $\ge 19$.
+
+\smallskip
+
+Some authors have even proposed a rate at which rank grow relative to the conductor $N$:
+
+\indent $\bullet$ Ulmer (2002),
+$$
+\limsup_{N \to \infty} \frac{ {\rm rk }\; E(\Q) } { \log N/ \log \log N} > 0?
+$$
+\indent $\bullet$ Farmer, Gonek and Hughes (2007),
+$$
+\limsup_{N \to \infty} \frac{ {\rm rk }\; E(\Q) } { \sqrt{\log N \log \log N}} = 1?
+$$
+
+\vspace{2mm}
+
+\subsection{Conjectures for rank $2$ asymptotics.}
+
+We first recall some basic notions in the theory of elliptic curves.
+
+\begin{definition}
+{\rm
+(1) (Quadratic twist) First assume that $char(K) \neq 2$. Let $E$ be an alliptic curve over $K$ of the form:
+\begin{align*}
+y^2 = x^3 + a_2x^2 + a_4x + a_6.
+\end{align*}
+Given $d \in K\setminus K^2$, the quadratic twist of $E$ is the curve $E_d$, defined by the equation:
+\begin{align*}
+dy^2 = x^3 + a_2x^2 + a_4x + a_6.
+\end{align*}
+Observe that $E_d(x,y) = 0$ if and only if $E(x,y\sqrt{d}) = 0$. Hence, the two elliptic curves $E$ and $E_d$ are isomorphic over the field extension $K(\sqrt{d}) \cong K[X]/(X^2-d)$.
+
+Now assume that $char(K) = 2$. Let $E$ be an elliptic curve over $K$ of the form:
+\begin{align*}
+y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6.
+\end{align*}
+Given $d \in K\setminus \{0\}$, the quadratic twist of $E$ is the curve $E_d$, defined by the equation:
+\begin{align*}
+y^2 + a_1xy + a_3y = x^3 + (a_2 + da_1^2)x^2 + a_4x + a_6 + da_3^2.
+\end{align*}
+In this case, we can check that $E_d(x,y) = 0$ if and only if $E(x, y+(a_1x+a_3)\zeta) =0$ where $\zeta$ is any of the solutions of the equation $X^2+X+d=0$ in fixed algebraic closure of $K$. Hence, the two elliptic curves $E$ and $E_d$ are isomorphic over the field extention $K[X]/(X^2+X+d)$.
+
+\smallskip
+
+(2) (Fundamental discriminant) $D \in \Z$ is a fundamental discriminant if and only if one of the following statements holds:
+\begin{align*}
+&\indent \bullet D \equiv 1 \; \text{(mod 4)} \; \text{and is square-free}; \\
+&\indent \bullet D = 4m, \; \text{where} \; m \equiv 2 \; \text{or} \; 3 \; \text{(mod 4) and } m \; \text{is square-free}.
+\end{align*}
+
+There exists a one-to-one correspondence between the set of fundamental discriminants with the union of set of quadratic fields and $\Q$, that is, each nontrivial fundamental discriminant is the discriminant of a unique (up to isomorphism) quadratic number field.
+
+\smallskip
+
+(3) ((naive) Height) An elliptic curve $E$ over $\Q$ is isomorphic to the projective closure of a curve $y^2 = x^3 + Ax + B$ for a unique pair of integers $(A,B)$ such that there is no prime $p$ such that $p^4 | A$ and $p^6 | B$. Define the (naive) height of $E$ by
+\begin{align*}
+\text{ht} \; E:= \max \{|4A^3|, |27B^2|\}.
+\end{align*}
+
+\smallskip
+
+(4) (Conductor for the simplified form) Let an elliptic curve $E$ over $\Q$ has a Weierstrass equation in the simplified form $y^2 = x^3 + Ax + B$. Let $p$ be a prime in $\Z$. By reducing each of the coefficients $A$ and $B$ modulo $p$, we obtain the equation of a cubic curve $\widehat{E}$ over the finite field $\mathbb{F}_p$. If $\widehat{E}$ is a non-singular curve, then we say that $E$ has good reduction at $p$. Else if $\widehat{E}$ has a cusp (i.e. the discriminant of $\widehat{E}$ equals to $0$ and $A = 0$ (mod $p$)), then we say that $E$ has additive reduction at $p$. Otherwise, if $\widehat{E}$ has a node,  (i.e. the discriminant of $\widehat{E}$ equals to $0$ and $A \neq 0$ (mod $p$)), then we say that $E$ has multiplicative reduction at $p$.
+
+For each prime $p \in \Z$, define the quantity $f_p$ as follows:
+\begin{align*}
+f_p = \begin{cases}
+0, & \mbox{if} \; E \; \text{has good reduction at} \; p, \\
+1, & \mbox{if} \; E \; \text{has multiplicative reduction at} \; p, \\
+2, & \mbox{if} \; E \; \text{has additive reduction at} \; p, \; \text{and} \; p \neq 2,3, \\
+2+ \delta_p, & \mbox{if} \; E \; \text{has additive reduction at} \; p, \; \text{and} \; p \in \{2,3\}.
+\end{cases}
+\end{align*}
+
+Then, the conductor $N_{E/\Q}$ of an elliptic curve $E$ over $\Q$ is defined as
+\begin{align*}
+N_{E/\Q} := \prod_{p: \; \text{prime}} p^{f_p}.
+\end{align*}
+
+}
+\end{definition}
+
+\begin{example}\label{htEd}
+{\rm
+ Let $E$ be an alliptic curve over $\Q$ of the form $y^2 = x^3 + Ax +B$ for some constants $A$ and $B$ such that $4A^3 + 27B^2 \neq 0$. Then, for each $d \in \Q \setminus \Q^2$, the quadratic twist of $E_d$ is defined by the equation $dy^2 = x^3 + Ax + B$. We can check that this is equivalent to the equation $y^2 = x^3 + d^2Ax + d^3B$. Hence, we obtain $\text{ht} \; E_d = \max \{ |4d^6A^3|, |27d^6B^2|\} \asymp d^6$ for general elliptic curve $E$ over $\Q$.
+}
+\end{example}
+\vspace{2mm}
+
+Fix an elliptic curve $E$ over $\Q$. Let $d$ range over fundamental discriminants in $\Z$. Given $r \in Z_{\ge 0}$ and $D>0$, define
+\begin{align*}
+N_{\ge r}(D)&:= \# \{d: |d| \le D, \; \text{rk} \; E_d(\Q) \ge r \},\\
+N_{\ge r, \; \text{even}}(D)&:= \# \{d: |d| \le D, \; \text{rk} \; E_d(\Q) \ge r, \;\text{and} \; w(E_d) = +1 \}, \\
+N_{\ge r, \; \text{odd}}(D)&:= \# \{d: |d| \le D, \; \text{rk} \; E_d(\Q) \ge r, \;\text{and} \; w(E_d) = -1 \},
+\end{align*}
+where $w(E_d) \in \{-1, +1\}$ is the global root number of $E_d$.
+
+\smallskip
+{\bf Conjecture $\mathbf{2}$.} Does it hold that
+\begin{align*}
+N_{\ge 2, \; \text{even}}(D) = D^{3/4 +o(1)}\; ?
+\end{align*}
+
+\smallskip
+
+In other words, the prediction is that for $d$ such that $w(E_d) = +1$, the probability that $\text{rk} \; E_d(\Q) \ge 2$ should be about $d^{3/4+o(1)}/d \simeq d^{-1/4}$. Since $\text{ht} \; E_d \asymp d^6$ by Example \ref{htEd}, this prediction corresponds to a probability of $h^{-1/24}$ for an elliptic curve of height $h$.
+
+\smallskip
+
+\begin{remark}
+{\rm
+(a) The Birch and Swinnerton-Dyer conjecture would imply the parity conjecture,
+
+\smallskip
+
+{\bf Conjecture $\mathbf{3}$.} Does it hold that
+\begin{align*}
+w(E) = (-1)^{\text{rk} \; E(\Q)} \; ?
+\end{align*}
+
+\smallskip
+
+Let $E$ be an elliptic curve over $\Q$ with $w(E) = +1$. Then, it is known that for a weight $3/2$ cusp form $f = \sum a_nq^n$ such that for all odd fundamental discriminants $d<0$ coprime to the conductor of $E$, we have $a_{|d|} = 0$ if and only if $L(E_d, 1) = 0$. If the BSD conjecture is true, then the condition $L(E_d,1)=0$ is equivalent to $\text{ord}_{s=1} L(E_d, s) \ge 2$, which is equivalent to $\text{rk} \; E_d(\Q) \ge 2$. The Ramanujan conjecture predicts that $a_|d|$ is an integer satisfying $|a_|d|| \le |d|^{1/4 + o(1)}$. Hence, heuristically, we can expect that $a_|d| = 0$ occurs with "probability" $|d|^{-1/4+o(1)}$ and hence $N_{\ge 2, \; \text{even}}(D)  \simeq \sum_{|d| \le D} |d|^{-1/4+o(1)} \simeq |D|^{3/4 + o(1)}$.
+
+\smallskip
+
+(b) Conrey, Keating, Rubinstein and Snaith used random matrix theory to get a developed conjecture, that is, there exist constants $c_E, e_E \in \R$ such that
+
+\smallskip
+{\bf Conjecture $\mathbf{4}$.}
+\begin{align*}
+N_{\ge 2, \; \text{even}}(D) = (c_E + o(1))D^{3/4} (\log D)^{e_E}\; ?
+\end{align*}
+
+On the other hand, Watkins developed a variant for the family of all elliptic curves over $\Q$, that is, there exists a constant $c_0>0$ such that
+
+\smallskip
+{\bf Conjecture $\mathbf{5}$.}
+\begin{align*}
+\# \{E: \text{ht} \; E \le H, \; \text{rk} \; E_d(\Q) \ge 2, \;\text{and} \; w(E_d) = +1 \} =  (c_0 + o(1)) H^{19/24} (\log H)^{3/8}\; ?
+\end{align*}
+
+\smallskip
+
+An elementary seive argument shows that 
+\begin{align*}
+\# \{E: \text{ht} \; E \le H\} = (\kappa + o(1))H^{5/6},
+\end{align*}
+where $\kappa:=2^{4/3}3^{-3/2} \zeta(10)^{-1}$. Hence, the Conjecture $5$ is related to Conjecture $4$ through the equation that $19/24 = 5/6 - 1/24$.
+
+}
+\end{remark}
+
+\end{document}
