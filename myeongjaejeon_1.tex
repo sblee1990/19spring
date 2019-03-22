@@ -1,0 +1,182 @@
+\documentclass[12pt]{article}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usepackage{romannum}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=black,      
+    urlcolor=blue,
+}
+ 
+\urlstyle{same}
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{main}{Main Theorem}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{ex}[thm]{Example}
+\newtheorem*{note}{Note}
+\newtheorem{rmk}[thm]{remark}
+\newtheorem{exercise}{Exercise}
+\theoremstyle{definition}
+\newtheorem*{Rule}{Rule}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\setlength{\columnseprule}{1 pt}
+
+\begin{document}
+
+\pagenumbering{arabic}
+
+\section*{The Mordell-Weil Theorem}
+
+\section{Elliptic Curves}
+
+We begin with the definition of elliptic curves.
+
+\begin{defn}
+    An elliptic curve E over a field K, denoted by E/K is a plane curve defined by an equation \(y^2=x^3+ax+b\) for \(a, b \in K\) where the discriminant \( \Delta = (4a^3+27b^2) \ne 0 \).
+\end{defn}
+
+It is natural to be curious about the set \(E(K) = \{ (x,y) \in K^2 : y^2 = x^3 + ax + b, \: a, b \in K, \: \Delta \ne 0\} \cup \{ \infty \} \). Here, \( \infty \) denotes the point at infinity which we naively interpret this point to lie in every line \(x=c\) for all \( c \in K \) with \(y\)-coordinate \(\infty\).
+
+In fact, \( E(K) \) inherits an abelian group structure. For \(P,Q \in E(K)\), let \(L\) be the line through \(P\) and \(Q\) (if \(P=Q\), let \(L\) be the tangent line to \(E\) at \(P\)), and let \(R\) be the third point of intersection of \(L\) with \(E\). Let \(L'\) be the line through \(R\) and \(\infty\). Then \(L'\) intersects \(E\) at \(R\), \(\infty\), and a third point which is defined as \(P+Q\). Since this binary operation is obviously symmetric, it is reasonable to use the additive notation. \( \infty\) becomes the identity and \(-P\) is defined by the point obtained by reflecting \(P\) across the \(x\)-axis. Besides associative law, other group laws can be easily verified. Moreover, one can verify associative law case by case, or more elegantly, using Riemann-Roch theorem [2, \Romannum{3}.2.2].
+
+The group \(E(K)\) is called the \textit{Mordell-Weil group} of \(E/K\). So naturally, our concern is to compute the Mordell-Weil group. Although an elliptic curve can be defined over an arbitrary number field \(K\), we mostly focus on the case \(K=\mathbb{Q}\).
+
+\section{The Mordell-Weil Theorem}
+
+\begin{thm} 
+    (Mordell-Weil) For a number field K, the abelian group E(K) is finitely generated.
+\end{thm}
+
+We prove it for the case \(K = \mathbb{Q}\). The proof of the Mordell-Weil theorem consists of two parts: the first part is to prove the weak Mordell-Weil theorem and the second part is to prove the decent theorem to complete the proof.
+
+\begin{thm}
+    (Weak Mordell-Weil) For a number field K, an elliptic curve E/K, and any integer \(m \geq 2\), \(E(K)/mE(K)\) is a finite group. 
+\end{thm}
+
+Note that the weak Mordell-Weil theorem is not enough to prove the Mordell-Weil theorem. For example, for every positive integer \(m\), \(\mathbb{R}/m\mathbb{R}=0\) is finite yet \( \mathbb{R} \) is not a finitely genereted abelian group. The problem occurs since there are large number of elements divisible by \(m\) so that we obtain a finite group even after we mod out those elements. To resolve this problem, we consider a particular situation that we can give a restriction to the number of elements using so called 'height'. To be specific, we introduce the decent theorem which is worthwhile to prove.
+
+\begin{thm} (Decent Theorem) 
+    Let A be an abelian group. Suppose that there exists a (height) function
+    \begin{align*}
+        h:A \xrightarrow{} \mathbb{R}
+    \end{align*}
+    with the following properties: \\
+    (a) Let \(P_0 \in A\). There is a constant \(C_1\), depending on A and \(P_0\), such that
+        \begin{gather*}
+            h(P+ P_0) \leq 2h(P) + C_1 \text{  for all \(P \in A\)}
+        \end{gather*}
+    (b) There are an integer \(m \geq 2\) and a constant \(C_2\), depending on A, such that
+        \begin{gather*}
+            h(mP) \geq m^2 h(P) - C_2 \text{  for all \(P \in A\)}
+        \end{gather*}
+    (c) For every constant \(C_3\), the set
+        \begin{gather*}
+            \{P \in A : h(P) \leq C_3\}
+        \end{gather*} 
+            \par is finite. \\
+    Suppose further that for the integer m in (b), the quotient group A/mA is finite. Then A is finitely generated.
+\end{thm}
+\begin{proof}
+    Let \( Q_i \), \( 1 \leq i \leq r \) be representatives of cosets in \(A/mA\). Note that for each \(P \in A\), there exists \( P'\in A \) and \(Q_i\) such that \( P = mP' + Q_i \). Let \(P \in A\) be given. Define \(P_i\) inductively as follows.
+    \begin{align*}
+        P   =& mP_1 + Q_{i_1}\\
+        P_1 =& mP_2 + Q_{i_2}\\
+            &\vdots \\
+        P_{n-1} =& mP_n + Q_{i_n}
+    \end{align*}
+    Let \(C_1 '\) be a maximal constant among the constants from (a) for all \( Q_i\)'s. By (a) and (b), we have
+    \begin{align*}
+        h(P_j) \leq \frac{1}{m^2} (2h(P_{j-1}) + C_1 ' + C_2)
+    \end{align*}
+    Using this inequality repeatedly, we get
+    \begin{align*}
+        h(P_n) &\leq \Big(\frac{2}{m^2} \Big)^n h(P) + \Big( \frac{1}{m^2} + \frac{2}{m^4} + \cdots + \frac{2^{n-1}}{m^{2n}} \Big)(C_1'+ C_2) \\
+        &< \frac{1}{2^n} h(P) + \frac{1}{2} (C_1'+C_2) \text{       since \(m \geq 2\)} 
+    \end{align*}
+    Therefore, for sufficiently large \( n \), we have
+    \begin{align*}
+        h(P_n) \leq 1 + \frac{1}{2} (C_1'+C_2) 
+    \end{align*}
+    Moreover, since \(P\) is a linear combination of \(P_n\) and \(Q_i\)'s, it follows that \(A\) is generated by
+    \begin{align*}
+        \{Q_i : i=1, \cdots, r \} \cup \{ Q : h(Q) \leq 1+ \frac{1}{2} (C_1'+C_2)\}
+    \end{align*}
+    which is finite by (c).
+\end{proof}
+
+Combining the weak Mordell-Weil theorem and the decent theorem, one can see that it is enough to find an integer \(m \geq 2\) and a height function on a Mordell-Weil group to prove the Mordell-Weil theorem. Although the Mordell-Weil theorem is true for an arbitrary number field, first consider the case \(K = \mathbb{Q}\). Now we define a height function on the Mordell-Weil group as follows. 
+
+\begin{defn} The (logarithmic) height on \(E(\mathbb{Q})\) is the function \(h_x : E(\mathbb{Q}) \rightarrow \mathbb{R}\) defined by 
+    \begin{align*}
+        h_x(P) =  \begin{cases} 
+                        logH(x(P)) & P \ne \infty \\
+                        0 & P = \infty 
+                   \end{cases}
+    \end{align*}
+    where \( x(P) \) is the x-coordinate of P and \(H(t) = max( \lvert p \rvert , \lvert q \rvert), \text{ } t=p/q \in \mathbb{Q}\) is a fraction in lowest term. H(t) is called the height of t. Note that \(h_x\) is positive.
+\end{defn}
+So the proof of the Mordell-Weil theorem is completed by verifying that the logarithmic height function on \(E(\mathbb{Q})\) satisfies assumptions of the decent theorem. The integer in (b) will be \(m=2\). First, (c) can be easily verified since given constant \(C\), there are at most \((2C+1)^2\) possible \( x\in \mathbb{Q}\) satisfying \( H(x) < C \) and given \(x\), there are at most two values of \(y\) such that \( (x,y) \in E(\mathbb{Q})\). Proofs of (a) and (b) can be developed not that hard if one can note that \( (x,y) \in E(\mathbb{Q}) \) has a reduced form \((a/c^2, b/c^3)\). Proofs can be found in [2, \Romannum{8}.4.1]. Lastly, finiteness of the quotient group \(E(\mathbb{Q})/2E(\mathbb{Q})\) is guaranteed by the weak Mordell-Weil theorem. One can define a height function on an elliptic curve over an arbitrary number field to use the decent theorem similarly. So the Mordell-Weil theorem is proved.
+
+\section{Remarks}
+    From the Mordell-Weil theorem, we can compute the Mordell-Weil group if we compute finitely many generators for it. Recall the proof of the decent theorem. First, we need to find out the representatives \(\{Q_i\}\) of cosets in \( E(K)/mE(K)\) and calculate constants \(C_1\) for each \(Q_i\). Furthermore, we must be able to calculate constants \(C_2\) and \(C_3\). In fact, given generators for \( E(K)/mE(K) \), a finite amount of computation yields generators for \( E(K)\) since it is able to compute those constants effectively. We will see these relations later concerning the proof of the weak Mordell-Weil theorem which is based on the Kummer paring. After all, so the problem of computing the Mordell-Weil group reduces to the problem of computing the weak Mordell-Weil group \(E(K)/mE(K)\). Unfortunately, there is no currently known algorithm to compute generators. However, we build several methods to approach this problem, for example, the Selmer group and the Shafarevich-Tate group.
+
+\begin{thebibliography}{}
+\bibitem{}
+ \href{http://www.math.tifr.res.in/~rajan/homepage/weakmorweil.pdf}{Rajan, C. S.,\emph{Weak Mordell-Weil theorem. In: Bhandari A.K., Nagaraj D.S., Ramakrishnan B., Venkataramana T.N. (eds) Elliptic Curves, Modular Forms and Cryptography}. Hindustan Book Agency, Gurgaon, 2003}
+\bibitem{}
+ \href{https://www.springer.com/la/book/9780387094939}{Silverman, J. H.,
+ \emph{The Arithmetic of Elliptic Curves}. 2nd ed.,
+ Graduate Texts in Mathematics, vol. 106, Springer-Verlag, New York,~2009}
+\bibitem{}
+ \href{https://books.google.co.kr/books?id=2_PLCQAAQBAJ&printsec=frontcover&dq=Rational+Points+on+Elliptic+Curves&hl=ko&sa=X&ved=0ahUKEwiahcaz_ZDhAhWUxIsBHfEdBtUQ6AEIMTAB#v=onepage&q=Rational%20Points%20on%20Elliptic%20Curves&f=false}{Silverman, J. H., Tate, J. T.,
+ \emph{Rational Points on Elliptic Curves}. 2nd ed., Undergraduate Texts in Mathematics, Springer International Publishing, 2015}
+\end{thebibliography}
+
+\end{document}
