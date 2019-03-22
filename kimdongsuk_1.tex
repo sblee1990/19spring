@@ -1,0 +1,122 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amssymb,amscd,amsthm,latexsym,verbatim}
+\usepackage{amssymb,amscd,amsthm,verbatim,syntonly}
+\usepackage{graphics}
+\usepackage{latexsym}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{cite}
+\usepackage{graphicx,subfigure}
+\usepackage{blkarray}
+\usepackage[left=3.6cm,right=3.6cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{indentfirst}
+\parindent=1em
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{f}{Fact}
+\newtheorem{theom}{Theorem}
+\newtheorem{claim}{claim}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{qe}[thm]{Question}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\theoremstyle{definition}
+\newtheorem{exmp}[thm]{Example} 
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{q}{Question}
+
+
+\newcommand{\redhom}{\tilde{H}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\sgn}{\operatorname{sgn}}
+
+\begin{document}
+\title[]
+{Riemann Surfaces}
+\author{Dong Suk Kim}
+
+
+\maketitle
+\section{Riemann surfaces}
+In view of historical origin and current development in theoretical physics, Riemann surfaces are very important topics. A Riemann surface is a one dimensional complex manifold. But why we call the manifolds Riemann surfaces? Through 5 essay, we shall see the reason and connections with elliptic curves. 
+
+\begin{defn} Let $X$ be a two-dimensional manifold. $A$ $complex$ $chart $ on X is a homeomorphism $ \phi : U \to V $, where $U \subset X$ is an open set in $X$, and $V \subset \mathbb{C}$ is an open set in the complex plane. Let $\phi_1 : U_1 \to V_1\ $ and $\phi_2 : U_2 \to V_2 $ be two complex charts on X. We say that $\phi_1$ and $\phi_2$ are compatible if  either $ U_1 \cap U_2 = \varnothing $, or 
+\begin{equation*} \phi_2 \circ \phi_1^{-1} : \phi_1(U_1 \cap U_2) \to \phi_2(U_1 \cap U_2)
+\end{equation*} is holomorphic.
+
+\end{defn}
+\begin{defn}A $complex$ $atlas$ on X is a system $\mathcal{U} = \{ \phi_i : U_i \to V_i, i \in I \}$ of charts which are compatible and cover X.
+\end{defn}
+\begin{defn} Two complex atalses $\mathcal{A}$ and $\mathcal{B}$ are $equivalent$ if every chart of one is compatible with every chart of the other.
+\end{defn}
+
+\begin{defn} A $complex$ $structure$ on X is a maximal complex atlas on X, or equivalently, and equivalence class of complex atlases on X
+\end{defn}
+
+\begin{defn} A $Riemann$ $surface$ is a connected two-dimensional manifold X with a complex structure.
+\end{defn} 
+\begin{exmp} $The$ $Riemann$ $sphere$ $\mathbb{P}^1$. $\mathbb{P}^1$ = $\mathbb{C}$ $\cup$ $\{\infty \}$ endowed with one point compactification of $\mathbb{C}$ and complex structure. One can identify with the unit sphere in $\mathbb{R}^{3}$ using the stereographic projection.
+\end{exmp}
+
+\begin{exmp} $Tori$. Suppose $\omega_1$, $\omega_2$ $\in$ $\mathbb{C}$ are linearly independent over $\mathbb{R}$. Define 
+\begin{equation*} \Gamma := \mathbb{Z}\omega_1 + \mathbb{Z}\omega_2 = \{n\omega_1 + m\omega_2 : n,m \in \mathbb{Z} \}.
+\end{equation*}  
+The Quotient topology on $ \mathbb{C}/\Gamma $ endowed with a complex structure is a Tori. For detail, See [1].
+\end{exmp}
+
+\begin{defn}
+Suppose X and Y are Riemann surfaces. A continuous mapping $f: X \to Y$ is called $holomorphic$, if for every pair of charts $\psi_1 : U_1 \to V_1$ on $X$ and $\psi_2 : U_2 \to V_2$ on $Y$ with $f(U_1) \subset U_2$, the mapping \begin{equation*} \psi_2 \circ f \circ \psi_1^{-1} : V_1 \to V_2
+\end{equation*} is holomorphic in the usual sense.
+
+A mapping $f: X \to Y$ is called $biholomorphic$ if it is bijective and both $f,f^{-1}$ are holmorphic. Two Riemann surface X and Y are called $isomorphic$ if there exists a biholomorphic mapping $f:X \to Y$.
+\end{defn}
+\begin{prop} Let $\Gamma = \mathbb{Z}\omega_1 + \mathbb{Z}\omega_2$ and $\Gamma' = \mathbb{Z}\omega_1' + \mathbb{Z}\omega_2'$ be two lattices in $\mathbb{C}$. Then $\Gamma = \Gamma'$ if and only if there exists a matrix $A \in SL(2,\mathbb{Z}) := \{A \in GL(2,\mathbb{Z}):det A=1 \}$ such that 
+\begin{equation*} { \omega_1' \choose \omega_2'} = A { \omega_1 \choose \omega_2}.
+\end{equation*}
+\end{prop}
+
+$Proof$. It suffices to show 'only if' part. If we let A = $\begin{pmatrix} a & b \\ c & d \end{pmatrix}, ad-bc=1$ since $A \in SL(2,\mathbb{Z})$. Then $c\omega_1' - a\omega_2' = (cb-ad)\omega_2=-\omega_2$. Then $\omega_2 \in \Gamma'$. Since $\omega_1' = a\omega_1+b\omega_2$ and $a,b$ are integers, also $\omega_1  \in \Gamma'$.  Hence $ \Gamma \subset \Gamma'$ . As $A^{-1}$ $\in SL(2,\mathbb{Z})$, $\Gamma' \subset \Gamma$ by same argument.
+
+\vspace{2ex}
+
+Next we want to propose more concrete criterion for classifying complex torus.
+\begin{prop} Every torus $X$ = $\mathbb{C}/\Gamma$ is isomorphic to a torus of the form 
+\begin{equation*} X(\tau):=\mathbb{C}/(\mathbb{Z}+\mathbb{Z}\tau),
+\end{equation*}
+where $\tau$ $\in \mathbb{C}$ satisfies $Im(\tau)>0$.
+\end{prop}
+$Proof$. Let $\omega_1, \omega_2$ be generator of $\Gamma$. Then we can choose $\alpha$ such that $\alpha\omega_1$ is real in complex plane and $\left\vert \alpha \right\vert$=$(\left\vert \omega_1 \right\vert)^{-1}$. If arg($\alpha\omega_2) > \pi$, replace by $-\alpha$.
+If we set $\tau$=$\alpha\omega_2$, multiplying $\alpha$ on $\mathbb{C}$ induces a holomorphic map from $\mathbb{C}/\Gamma$ to $X(\tau)$ since $\alpha\Gamma \subset \Gamma'$. But the two lattice is identified by multiplying $\alpha$. So the map is biholomorphic. Hence the two tori is isomorphic. Note that the volume of the lattice of $X(\tau)$ is differ from that of $\Gamma$.
+
+
+
+\begin{cor} Suppose $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ $\in SL(2,\mathbb{Z})$ and $Im(\tau)>0$. Let
+\begin{equation*} \tau':={a\tau+b \over c\tau+d}.
+\end{equation*}
+Then the tori $X(\tau)$ and $X(\tau')$ are isomorphic.
+\end{cor}
+$Proof$.  Set ${\omega_1 \choose \omega_2 }=\begin{pmatrix} a & b \\ c & d \end{pmatrix}$${\tau \choose 1}$. Let $\Gamma'$,$\Gamma$ be each lattice generated by $(\tau',1)$ and $(\tau,1)$. Let $\alpha $=$(c\tau+d)^{-1}$. Then $\Gamma'$=$\alpha\Gamma$.
+Then by proposition (1.9),(1.10), $X(\tau)$ and $X(\tau')$ are isomorphic.  
+\vspace{2ex}
+
+In general, Given a map from $\mathbb{C}/\Gamma$ to $\mathbb{C}/\Gamma'$, then there exists $\alpha,\beta$ with $\alpha\Gamma \subset \Gamma'$ such that the image of map is $\alpha\Gamma+\beta$+$\Gamma'$.  
+ 
+
+\begin{thebibliography}{30}
+\bibitem{OF}
+O.Forster, \emph{Lectures on Riemann Surfaces}. Springer-Verlag, New York, 1999.
+
+
+\end{thebibliography}
+
+\end{document}
+
+
+
