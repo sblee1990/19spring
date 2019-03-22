@@ -1,0 +1,196 @@
+
+\documentclass[a4paper,11pt]{article}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{titling}
+\usepackage[left=2cm,right=2cm,top=1cm,bottom=2cm,a4paper]{geometry}
+\usepackage{mathrsfs}
+\usepackage{calrsfs}
+
+
+
+\begin{document}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exm}[thm]{Example}
+\newtheorem{prp}[thm]{Proposition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{lem}[thm]{Lemma}
+
+\font\myfont=cmr12 at 20pt
+
+\title{\vspace{-5ex} \myfont Moduli of Complex Elliptic Curves}
+\author{Jemin You}
+\date{\vspace{-5ex}}
+\maketitle
+
+\setcounter{section}{0}
+
+We follow Diamond and Shurman's book `A First Course on Modular Forms', Springer GTM 228.
+
+\section{Complex Elliptic Curves}
+
+\begin{defn}
+A \textbf{complex elliptic curve} is a pointed compact Riemann surface of genus 1.
+\end{defn}
+
+It is well-known that an elliptic curve is isomorphic to a complex torus $\mathbb{C}/\Lambda$ where $\Lambda$ is a lattice of rank $2$.
+The distingushed point corresponds to $0$.
+
+\begin{thm}
+Any  elliptic curve is isomorphic to a complex torus of the form
+\[
+\mathbb{C}/\Lambda_{\tau} \enskip (\Lambda_{\tau}:=\mathbb{Z}+\mathbb{Z}\tau, \enskip \textnormal{Im}\tau > 0).
+\]
+Moreover, this $\tau$ is unique up to the action of $\textnormal{SL}(2,\mathbb{Z})$ on the upper half-plane $\mathfrak{H}=\{\textnormal{Im}\tau>0\}$ given by
+\[
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}.\tau = \frac{a\tau+b}{c\tau+d}.
+\]
+Hence the isomorphism classes of elliptic curves are in one-to-one correspondence with the points of the quotient space
+\[
+\mathfrak{H}/\textnormal{SL}(2,\mathbb{Z}) \stackrel{j}{\simeq} \mathbb{C},
+\]
+where $j$ is a weight $0$ modular function known as the $j$-invariant of the elliptic curve $\mathbb{C}/\Lambda_{\tau}$.
+Here, if we write
+\[
+G_{2k}(\tau)=\sum_{\omega \in \Lambda_{\tau} \setminus \{0\}}\frac{1}{\omega^{2k}}, \enskip
+g_2(\tau)=60G_4(\tau), \enskip g_3(\tau)=140G_6(\tau),
+\]
+then
+\[
+j=\frac{1728g_2^3}{g_2^3-27g_3^2}.
+\]
+\end{thm}
+
+We call the space $\mathfrak{H}/\textnormal{SL}(2,\mathbb{Z})\simeq\mathbb{C}$ the $\textbf{moduli space}$ of elliptic curves for this reason.
+
+\section{Compactifying the Moduli Space}
+
+One of the issues of the moduli space $\mathbb{C}$ is that it is not $\textbf{compact}$.
+We will compactify $\mathbb{C}$ by adding cusps.
+
+\begin{defn}
+The extended upper half-plane $\mathfrak{H}^*$ is a topological space defined as follows: as a set, it is $\mathfrak{H}\cup\mathbb{Q}\cup\{\infty\}$.
+We then have an obvious extension of the action of $\textnormal{SL}(2,\mathbb{Z})$ on $\mathfrak{H}^*$.
+The basic open sets for the topology are the open sets of $\mathfrak{H}$, and the sets
+\[
+\gamma.\{\textnormal{Im}\tau > \delta \}, \enskip \gamma \in \textnormal{SL}(2,\mathbb{Z}), \enskip \delta > 0.
+\]
+\end{defn}
+
+The topology defined reflects some topological properties of actions near cusps.
+One motivation of adding the rational and the infinity points to the upper half-plane is to think them of the limit points of the action.
+We would like to explain the significance of the following theorem.
+
+\begin{thm}
+The quotient space $\mathfrak{H}^*/\textnormal{SL}(2,\mathbb{Z})$ has a structure of a compact Riemann surface.
+It is isomorphic to $\mathbb{CP}^1$ and contain $\mathbb{C}=\mathfrak{H}/\textnormal{SL}(2,\mathbb{Z})$ as an open submanifold, of which the complement is the point $\infty$.
+\end{thm}
+
+The stabilizer of points of $\mathfrak{H}$ are generally $\{\pm$$I\}$, but orbits of $i$ and the third root of unity $\rho$ have stabilizers of order $4$ and $6$ respectively, and $\infty$ has a stabilizer group which is an extension of $\mathbb{Z}$ by $\pm$$I$.
+The finite stabilizers mentioned above is not an issue by following well-known lemma from Riemann surface theory(take $G=\textnormal{PSL}(2,\mathbb{Z})$):
+\begin{lem}
+Let $X$ be a Riemann surface and $G$ be an abstract group.
+If $G$ acts faithfully and holomorphically and properly discontinuously on $X$, the orbit space $X/G$ has a (unique) Riemann surface structure so the projection map $X$ $\to$ $X/G$ is holomorphic.
+\end{lem}
+
+What is interesting is that despite the infinite cyclic stabilizer of $\infty$ in $\textnormal{PSL}(2,\mathbb{Z})$ we can give chart near $\infty$ so that $\mathfrak{H}^*/\textnormal{SL}(2,\mathbb{Z})$ is a compactification of $\mathfrak{H}/\textnormal{SL}(2,\mathbb{Z})$.
+This happens because some open sets of $\mathfrak{H}/\textnormal{SL}(2,\mathbb{Z})$ pulled back to $\mathfrak{H}$ `straightens' near $\infty$.
+
+\begin{defn}
+Let $X$ be a Riemann surface.
+A $\textbf{hole chart}$ is a chart $\phi:U$ $\to$ $V$ from an open subset of $X$'s to $\mathbb{C}$'s such that there exists a closed subset $C$ of $X$ contained in $U$ that is mapped to a punctured disk of $\mathbb{C}$ contained in $V$.
+\end{defn}
+
+\begin{lem}
+Maintain the notation of the above definition.
+Then there exists a Riemann surface $X'$ which is set-theoretically $X$ with a point added.
+The charts of $X'$ are the charts of $X$ and the chart obtained by the inverting extended $\phi^{-1}$, where the extended $\phi^{-1}$'s domain is the union of $V$ with the punctured point of the disk.
+\end{lem}
+
+So the picture is clear by now: the topology on $\mathfrak{H}^*$ described above is defined so the quotient space $\mathfrak{H}/\textnormal{SL}(2,\mathbb{Z})$ will have a hole chart `near $\infty$'.\\
+
+The straightening can be observed by considering the behaviour of the $j$-invariant, which established the isomorphism $\mathfrak{H}/\textnormal{SL}(2,\mathbb{Z})\simeq\mathbb{C}$.
+In fact, the $j$-invariant's Fourier expansion near $\infty$ is:
+\[
+j=\frac{1}{q}+744+196884q+\cdots \enskip (q=e^{2\pi i\tau}).
+\]
+
+Hence the open set $\{\textnormal{Im}\tau>\delta\}$ is mapped to $j(\{|q|<e^{-2\pi\delta}\})$, giving the hole chart punctured at $\infty$ for sufficient large $\delta$
+(`disk punctured at $\infty$' is just $\{|z|>R\}$ for some $R>0$), because $j$ is injective modulo $1$ near $\infty$ by the fact
+
+\[
+\left(\frac{d}{dq}\right)_{q=0}\frac{1}{j}=\left(\frac{d}{dq}\right)_{q=0}(q-744q^2+\cdots)=1\neq0.
+\]
+
+
+
+\section{Enhanced Structures on Elliptic Curves}
+
+One of the other issues about the moduli space $\mathfrak{H}/\textnormal{SL}(2,\mathbb{Z})$ is that it is not a $\textbf{fine moduli space}$.
+Existence of nontrivial automorphisms of $\mathbb{C}/(\Lambda_{\tau})$ when $\tau=i$ or $\rho$ causes this failure.
+Such can be overcome when we enhance the elliptic curves.
+
+\begin{defn}
+Let $E$ be an elliptic curve, and $N$ a natural number.
+We denote by $E[N]$ the group of $N$-torsion points of $E$.
+Fixing as isomorphism $E\simeq\mathbb{C}/\Lambda_{\tau}$, if $P$, $Q$ $\in$ $E[N]$, then we associate an $N^{th}$ root of unity $e(P,Q)$ defined by
+\[
+e(P,Q):=e^{\frac{2\pi i(ad-bc)}{N}} \textnormal{ where } P=\frac{a+b\tau}{N}, Q=\frac{c+d\tau}{N}.
+\]
+This is a well-defined bilinear pairing on $E[N]$ called the $\textbf{Weil pairing}$.
+\end{defn}
+
+The Weil pairing is intrinsic to $E$, which is not a priori clear.
+
+\begin{defn}
+Let $N$ be a natural number.
+We define following level $N$ structures on elliptic curves.
+\[
+\begin{cases}
+\Gamma_0(N)\textnormal{-structure on }E: & \textnormal{A cyclic subgroup of order }N.\\
+\Gamma_1(N)\textnormal{-structure on }E: & \textnormal{A point of order }N.\\
+\Gamma(N)\textnormal{-structure on }E: & \textnormal{A pair of generators of }E[N] \textnormal{ with Weil pairing } e^{\frac{2\pi i}{N}}.
+\end{cases}
+\]
+hence a $\Gamma$-enhanced elliptic curve is a tuple of an elliptic curve with additional data, where $\Gamma$ is one of the above groups.
+\end{defn}
+
+The gamma groups above are exactly those from the class.
+The results of the previous sections hold almost word in word.
+
+\begin{thm}
+Let $N$ be a natural number and $\Gamma$ be one of the groups $\Gamma_0(N)$, $\Gamma_1(N)$ or $\Gamma(N)$.
+Then any $\Gamma$-enhanced elliptic curve is isomorphic to 
+\[
+\begin{cases}
+(\mathbb{C}/\Lambda_{\tau},<\frac{1}{N}>), &\textit{if  }\Gamma=\Gamma_0(N).\\
+(\mathbb{C}/\Lambda_{\tau},\frac{1}{N}), &\textit{if  }\Gamma=\Gamma_1(N).\\
+(\mathbb{C}/\Lambda_{\tau},\frac{1}{N},\frac{\tau}{N}),  &\textit{if  }\Gamma=\Gamma(N).
+\end{cases}
+\]
+Furthermore, this $\tau$ is unique up to  $\Gamma$-action.
+Therefore, the moduli space of  $\Gamma$-enhanced elliptic curves is the quotient
+\[
+\mathfrak{H}/\Gamma
+\]
+which has a structure of a noncompact Riemann surface.
+These are fine moduli spaces when $N>1$.
+Such moduli spaces can be compactified by adding the cusps $\mathbb{Q}\cup\{\infty\}$, giving the compact Riemann surface
+\[
+\mathfrak{H}^*/\Gamma
+\]
+where the added points are $\Gamma$-orbits of $\mathbb{Q}\cup\{\infty\}$, which is a finite set since $[\textnormal{SL}(2,\mathbb{Z}):\Gamma]<\infty$.
+\end{thm}
+
+
+
+
+\end{document}
